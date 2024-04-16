@@ -1,6 +1,7 @@
 import datetime
 import threading
 import time
+import platform
 import tkinter as tk
 from io import BytesIO
 from PIL import ImageGrab
@@ -389,7 +390,11 @@ if __name__ == "__main__":
     root = tk.Tk()
     root.title("EYE-DESK")
     root.configure(bg="#aefcc8")
-    root.geometry('500x380')
+    system = platform.system()
+    if system == "Darwin":
+        root.geometry('500x380')
+    elif system == "Windows":
+        root.geometry('750x580')
     logo_image = tk.PhotoImage(file=resource_path(), height=200, width=200)
     logo_label = tk.Label(root, image=logo_image)
     logo_label.pack(pady=10)
