@@ -1,0 +1,9 @@
+git clone https://github.com/amsagar/eye_desk_client.git
+cd eye_desk_client
+python -m venv .
+source bin/activate -- for mac
+venv\Scripts\activate
+pip install -r requirements.txt
+pyinstaller --onefile --icon=icon.ico -w --add-data "Activity.py:." --add-data "config.py:." --add-data "icon.png:." EyeDesk.py
+pyinstaller --onefile -w as.py
+dist/*.exe
