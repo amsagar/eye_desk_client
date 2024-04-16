@@ -126,21 +126,21 @@ class LoginApp:
 
     def show_login_screen(self):
         self.clear_screen()
-        self.ap_label = tk.Label(self.root, text="EYE-DESK", fg='black', bg='#aefcc8', font=("Arial", 52))
+        self.ap_label = tk.Label(self.root, text="EYE-DESK", fg='black', bg='#2ab0ff', font=("Arial", 52))
         self.ap_label.grid(row=0, column=0, columnspan=2, pady=5)
-        self.name_label = tk.Label(self.root, text="Welcome to EyeDesk!", font=("Arial", 18), fg='black', bg='#aefcc8')
+        self.name_label = tk.Label(self.root, text="Welcome to EyeDesk!", font=("Arial", 18), fg='black', bg='#2ab0ff')
         self.name_label.grid(row=1, column=0, columnspan=2, pady=5)
 
-        self.name_label1 = tk.Label(self.root, text="Login Here", font=("Arial", 16), fg='black', bg='#aefcc8')
+        self.name_label1 = tk.Label(self.root, text="Login Here", font=("Arial", 16), fg='black', bg='#2ab0ff')
         self.name_label1.grid(row=2, column=0, columnspan=2, pady=5)
 
-        self.email_label = tk.Label(self.root, text="Email:", font=("Arial", 22), fg='black', bg='#aefcc8')
+        self.email_label = tk.Label(self.root, text="Email:", font=("Arial", 22), fg='black', bg='#2ab0ff')
         self.email_label.grid(row=3, column=0, padx=10, pady=5, sticky="e")
 
         self.email_entry = tk.Entry(self.root, fg='black', bg='white')
         self.email_entry.grid(row=3, column=1, padx=10, pady=5)
 
-        self.password_label = tk.Label(self.root, text="Password:", font=("Arial", 22), fg='black', bg='#aefcc8')
+        self.password_label = tk.Label(self.root, text="Password:", font=("Arial", 22), fg='black', bg='#2ab0ff')
         self.password_label.grid(row=4, column=0, padx=10, pady=5, sticky="e")
 
         self.password_entry = tk.Entry(self.root, show="*", fg='black', bg='white')
@@ -193,7 +193,7 @@ class LoginApp:
             return False
 
     def show_error_message(self, message):
-        error_message = tk.Label(self.root, text=message, font=("Arial", 12), fg='red', bg='#aefcc8')
+        error_message = tk.Label(self.root, text=message, font=("Arial", 12), fg='red', bg='#2ab0ff')
         error_message.grid(row=7, column=0, columnspan=2, pady=5)
         self.root.after(5000, error_message.destroy)
 
@@ -203,17 +203,17 @@ class LoginApp:
 
     def show_home_screen(self):
         self.clear_screen()
-        self.ap_label = tk.Label(self.root, text="EYE-DESK", fg='black', bg='#aefcc8', font=("Arial", 52))
+        self.ap_label = tk.Label(self.root, text="EYE-DESK", fg='black', bg='#2ab0ff', font=("Arial", 52))
         self.ap_label.grid(row=0, column=0, columnspan=2, pady=5)
         with open(get_json_path(), "r") as file:
             login_status = json.load(file)
         home_label = tk.Label(self.root, text="Welcome!\n" + login_status.get("name"), font=("Arial", 18), fg='black',
-                              bg='#aefcc8')
+                              bg='#2ab0ff')
         home_label.grid(row=1, column=0, columnspan=2, pady=5)
         logout_button = tk.Button(self.root, text="Logout", command=self.logout)
         logout_button.grid(row=2, column=0, columnspan=2, pady=5)
         now = datetime.datetime.now()
-        date_label = tk.Label(self.root, text=now.strftime("%Y-%m-%d"), font=("Arial", 18), fg='black', bg='#aefcc8')
+        date_label = tk.Label(self.root, text=now.strftime("%Y-%m-%d"), font=("Arial", 18), fg='black', bg='#2ab0ff')
         date_label.grid(row=3, column=0, columnspan=2, pady=5)
         if login_status.get("timer") and login_status.get('date') == now.strftime("%Y-%m-%d"):
             self.t = login_status.get("timer")
@@ -373,7 +373,7 @@ class LoginApp:
     def show_error_screen(self):
         self.clear_screen()
         self.error_label = tk.Label(self.root, text="Please connect to Internet and Restart", font=("Arial", 18),
-                                    fg='red', bg='#aefcc8')
+                                    fg='red', bg='#2ab0ff')
         self.error_label.grid(row=0, column=0, columnspan=2, pady=5)
 
 
@@ -389,7 +389,7 @@ def resource_path():
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("EYE-DESK")
-    root.configure(bg="#aefcc8")
+    root.configure(bg="#2ab0ff")
     system = platform.system()
     if system == "Darwin":
         root.geometry('500x380')
@@ -398,9 +398,9 @@ if __name__ == "__main__":
     logo_image = tk.PhotoImage(file=resource_path(), height=200, width=200)
     logo_label = tk.Label(root, image=logo_image)
     logo_label.pack(pady=10)
-    app_label = tk.Label(root, text="EYE-DESK", fg='black', bg='#aefcc8', font=("Arial", 52))
+    app_label = tk.Label(root, text="EYE-DESK", fg='black', bg='#2ab0ff', font=("Arial", 52))
     app_label.pack(pady=20)
-    loading_label = tk.Label(root, text="Loading, please wait...", fg='black', bg='#aefcc8', font=("Arial", 32))
+    loading_label = tk.Label(root, text="Loading, please wait...", fg='black', bg='#2ab0ff', font=("Arial", 32))
     loading_label.pack(pady=1)
     root.after(1000, lambda: main_application(root))
     screen_width = root.winfo_screenwidth()
